@@ -30,9 +30,7 @@ class App extends Component {
   }, () => console.log(this.state)
   );
   };
-  handleSubmit = () => {
-    console.log('Clear list');
-  }
+ 
   handleDelete = (id) => {
     console.log(`handleDelete ${id}`);
   }
@@ -40,9 +38,8 @@ class App extends Component {
     console.log(`handleEdit ${id}`);
   }
   render() {
-   console.log(this.state);
   return (
-   //
+   
     
    <div className="container">
        <div className="row">
@@ -50,7 +47,9 @@ class App extends Component {
            <h3 className='text-capitalize text-center'>
                  todo input
            </h3> 
-           <TodoInput item={this.state.item} handleChange={this.handleChange} handleSubmit={this.handleSubmit}
+           <TodoInput item={this.state.item} 
+           handleChange={this.handleChange} 
+           handleSubmit={this.handleSubmit}
            editItem={this.state.editItem}/>
           <TodoList items={this.state.items} 
           clearList={this.clearList} 
