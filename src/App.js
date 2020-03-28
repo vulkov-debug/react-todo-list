@@ -14,25 +14,36 @@ class App extends Component {
     this.setState({
       item: e.target.value
     });
+  } 
+
+  clearList = () => {
+    this.setState({
+      items: []
+    })
   }
+
   handleSubmit = (e) => {
    e.preventDefault();
   const newItem = {
     id: this.state.id,
     title: this.state.item
   }
+ 
   const updatedItems =  [...this.state.items, newItem ]
   this.setState({
     items: updatedItems,
     item: '',
     id: uuidv4(),
     editItem: false
-  }, () => console.log(this.state)
+  }
   );
   };
  
   handleDelete = (id) => {
-    console.log(`handleDelete ${id}`);
+    const filteredItems = this.state.items.filter(item => item.id !== id)
+    this.setState({
+      items: filteredItems
+    })
   }
   handleEdit = (id) => {
     console.log(`handleEdit ${id}`);
